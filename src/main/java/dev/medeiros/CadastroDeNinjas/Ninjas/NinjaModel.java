@@ -1,9 +1,7 @@
 package dev.medeiros.CadastroDeNinjas.Ninjas;
 
-import dev.medeiros.CadastroDeNinjas.Missoes.Missao;
+import dev.medeiros.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
-
-import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -14,7 +12,9 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
-    private List<Missao> missoes;
+    @ManyToOne
+    @JoinColumn(name="missao_id") //Chave estrangeira
+    private MissaoModel missao;
 
     public NinjaModel() {
     }
